@@ -28,7 +28,11 @@ import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
-//***Begin Code - Teja***
+/**
+*Servlet to query the data for anfCodeChallenge property on pages
+*Begin Code - Teja*
+*/
+
 @Component(service = {Servlet.class})
 @SlingServletPaths(value = "/bin/queryPages")
 @ServiceDescription("Servlet to fetch the first 10 pages which has anfCodeChallenge property")

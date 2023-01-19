@@ -1,8 +1,8 @@
 package com.anf.core.pojo;
 
 /**
- * 
-***Begin Code - Teja***
+ * POJO class to map news data
+ *Begin Code - Teja*
  *
  */
 public class News {

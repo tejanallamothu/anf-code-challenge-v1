@@ -26,7 +26,7 @@ import com.day.cq.commons.jcr.JcrConstants;
 
 /**
  * Servlet to persist the user details on /var/anf-code-challenge node
- * ***Begin Code - Teja***
+ *Begin Code - Teja*
  */
 @Component(service = { Servlet.class })
 @SlingServletResourceTypes(
@@ -106,6 +106,9 @@ public class ANFSubmitUserDetailsServlet extends SlingAllMethodsServlet {
 			return Boolean.TRUE;
 		} catch (PersistenceException pe) {
 			LOGGER.error(EXCEPTION_MSG, pe.getMessage());
+		}
+			finally{
+			resourceResolver.close()
 		}
 		return Boolean.FALSE;
 	}

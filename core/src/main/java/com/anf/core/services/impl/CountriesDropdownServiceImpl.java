@@ -22,9 +22,8 @@ import org.slf4j.LoggerFactory;
 import com.anf.core.services.CountriesDropdownService;
 
 /**
- * To get a countries map from a dam node
- *  ***Begin Code - Teja***
-
+ * Service implementation To get a countries map from a dam node
+ *Begin Code - Teja*
  *
  */
 @Component(immediate = true, service = CountriesDropdownService.class)

@@ -28,7 +28,7 @@ import com.day.cq.commons.jcr.JcrConstants;
 
 /**
  * Servlet to fetch a country dropdown details from country dam node
- * ***Begin Code - Teja***
+ *Begin Code - Teja*
  */
 @Component(service = { Servlet.class })
 @SlingServletResourceTypes(

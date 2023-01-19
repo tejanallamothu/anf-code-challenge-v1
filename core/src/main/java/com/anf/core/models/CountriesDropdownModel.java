@@ -12,7 +12,7 @@ import com.anf.core.services.CountriesDropdownService;
 
 /**
  * Model class for a countries dropdown
- * ***Begin Code - Teja***
+ *Begin Code - Teja*
  *
  */
 @Model(adaptables = Resource.class)
@@ -24,10 +24,6 @@ public class CountriesDropdownModel {
 	@OSGiService
 	protected CountriesDropdownService countriesDropdownService;
 
-	@PostConstruct
-	protected void init() {
-		//do nothing
-	}
 
 	/**
 	 * To get a country code
