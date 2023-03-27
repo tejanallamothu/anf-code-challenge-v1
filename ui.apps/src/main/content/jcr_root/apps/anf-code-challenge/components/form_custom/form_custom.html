@@ -1,0 +1,30 @@
+<!--***Begin Code - Tejaswini Nallamothu *** -->
+<h2>Test Form</h2>
+<form class="custom-form" onsubmit="return false">    
+    <fieldset>
+        <div class="cmp-form-text">
+            <label for="firstName">First Name</label>
+            <input class="cmp-form-text__text" data-cmp-hook-form-text="input" type="text" id="firstName" name="First Name">
+        </div>        
+    </fieldset>
+    <fieldset>
+        <div class="cmp-form-text">
+            <label for="lastName">Last name</label>
+            <input class="cmp-form-text__text" data-cmp-hook-form-text="input" type="text" id="lastName" name="Last name">
+        </div>        
+    </fieldset>
+    <fieldset>
+        <label>Age</label>
+        <input class="cmp-form-text__text" data-cmp-hook-form-text="input" type="number" id="age" name="Age">        
+    </fieldset>
+    <fieldset class="countries">
+        <label>Country</label>
+        <select></select>        
+    </fieldset>
+    <fieldset>
+        <div class="btn-submit">
+            <sly data-sly-resource="${'submit' @ resourceType='anf-code-challenge/components/form/button'}"/>
+        </div>
+    </fieldset>
+</form>
+<!--***END Code*****-->

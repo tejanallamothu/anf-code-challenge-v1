@@ -1,0 +1,19 @@
+<!--***Begin Code - Candidate Name*** -->
+<sly data-sly-use.newsfeed="com.anf.core.models.NewsListModel">    
+    <div data-sly-list.newsItems=${newsfeed.getNewsList}  class="news_feed_container">
+        <div class="news-list">
+            <div class="news-list__image-wrap">
+                <img src="${newsItems.urlImage}" alt="${newsItems.title}" title="${newsItems.title}"/>
+            </div>
+            <div class="news-list__info">
+                <h2>${newsItems.title}</h2>
+                <div class="news-list__small-info">                    
+                    <span>${newsfeed.getCurrentDate}</span>
+                    <span>${newsItems.author}</span>
+                </div>
+                <p>${newsItems.description}</p>
+            </div>
+        </div>    
+    </div>
+</sly>
+<!--***END Code*****-->

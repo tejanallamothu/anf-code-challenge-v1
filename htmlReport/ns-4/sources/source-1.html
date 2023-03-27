@@ -1,0 +1,196 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > SimpleScheduledTask</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.anf.core.schedulers</a>
+</div>
+
+<h1>Coverage Summary for Class: SimpleScheduledTask (com.anf.core.schedulers)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SimpleScheduledTask</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">SimpleScheduledTask$Config</td>
+  </tr>
+  <tr>
+    <td class="name">SimpleScheduledTask$Config$MockitoMock$1886528402</td>
+  </tr>
+  <tr>
+    <td class="name">SimpleScheduledTask$Config$MockitoMock$1886528402$auxiliary$tZRhZakL</td>
+  </tr>
+  <tr>
+    <td class="name">SimpleScheduledTask$Config$MockitoMock$1886528402$auxiliary$wBkI1QFs</td>
+  </tr>
+  <tr>
+    <td class="name">SimpleScheduledTask$Config$MockitoMock$37406527</td>
+  </tr>
+  <tr>
+    <td class="name">SimpleScheduledTask$Config$MockitoMock$37406527$auxiliary$9mePBdBd</td>
+  </tr>
+  <tr>
+    <td class="name">SimpleScheduledTask$Config$MockitoMock$37406527$auxiliary$B1NRRxwu</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; *  Copyright 2015 Adobe Systems Incorporated
+&nbsp; *
+&nbsp; *  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; *  you may not use this file except in compliance with the License.
+&nbsp; *  You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *      http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; *  Unless required by applicable law or agreed to in writing, software
+&nbsp; *  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; *  See the License for the specific language governing permissions and
+&nbsp; *  limitations under the License.
+&nbsp; */
+&nbsp;package com.anf.core.schedulers;
+&nbsp;
+&nbsp;import org.osgi.service.component.annotations.Activate;
+&nbsp;import org.osgi.service.component.annotations.Component;
+&nbsp;import org.osgi.service.metatype.annotations.AttributeDefinition;
+&nbsp;import org.osgi.service.metatype.annotations.Designate;
+&nbsp;import org.osgi.service.metatype.annotations.ObjectClassDefinition;
+&nbsp;import org.slf4j.Logger;
+&nbsp;import org.slf4j.LoggerFactory;
+&nbsp;
+&nbsp;/**
+&nbsp; * A simple demo for cron-job like tasks that get executed regularly.
+&nbsp; * It also demonstrates how property values can be set. Users can
+&nbsp; * set the property values in /system/console/configMgr
+&nbsp; */
+&nbsp;@Designate(ocd=SimpleScheduledTask.Config.class)
+&nbsp;@Component(service=Runnable.class)
+<b class="fc">&nbsp;public class SimpleScheduledTask implements Runnable {</b>
+&nbsp;
+&nbsp;    @ObjectClassDefinition(name=&quot;A scheduled task&quot;,
+&nbsp;                           description = &quot;Simple demo for cron-job like task with properties&quot;)
+&nbsp;    public static @interface Config {
+&nbsp;
+&nbsp;        @AttributeDefinition(name = &quot;Cron-job expression&quot;)
+&nbsp;        String scheduler_expression() default &quot;*/30 * * * * ?&quot;;
+&nbsp;
+&nbsp;        @AttributeDefinition(name = &quot;Concurrent task&quot;,
+&nbsp;                             description = &quot;Whether or not to schedule this task concurrently&quot;)
+&nbsp;        boolean scheduler_concurrent() default false;
+&nbsp;
+&nbsp;        @AttributeDefinition(name = &quot;A parameter&quot;,
+&nbsp;                             description = &quot;Can be configured in /system/console/configMgr&quot;)
+&nbsp;        String myParameter() default &quot;&quot;;
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    private final Logger logger = LoggerFactory.getLogger(getClass());</b>
+&nbsp;
+&nbsp;    private String myParameter;
+&nbsp;    
+&nbsp;    @Override
+&nbsp;    public void run() {
+<b class="fc">&nbsp;        logger.debug(&quot;SimpleScheduledTask is now running, myParameter=&#39;{}&#39;&quot;, myParameter);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Activate
+&nbsp;    protected void activate(final Config config) {
+<b class="fc">&nbsp;        myParameter = config.myParameter();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-03-26 23:27</div>
+</div>
+</body>
+</html>

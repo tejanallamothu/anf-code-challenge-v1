@@ -1,0 +1,152 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > SimpleResourceListener</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.anf.core.listeners</a>
+</div>
+
+<h1>Coverage Summary for Class: SimpleResourceListener (com.anf.core.listeners)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SimpleResourceListener</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;/*
+&nbsp; *  Copyright 2015 Adobe Systems Incorporated
+&nbsp; *
+&nbsp; *  Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+&nbsp; *  you may not use this file except in compliance with the License.
+&nbsp; *  You may obtain a copy of the License at
+&nbsp; *
+&nbsp; *      http://www.apache.org/licenses/LICENSE-2.0
+&nbsp; *
+&nbsp; *  Unless required by applicable law or agreed to in writing, software
+&nbsp; *  distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+&nbsp; *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+&nbsp; *  See the License for the specific language governing permissions and
+&nbsp; *  limitations under the License.
+&nbsp; */
+&nbsp;package com.anf.core.listeners;
+&nbsp;
+&nbsp;import org.apache.sling.api.SlingConstants;
+&nbsp;import org.osgi.service.component.annotations.Component;
+&nbsp;import org.osgi.service.component.propertytypes.ServiceDescription;
+&nbsp;import org.osgi.service.event.Event;
+&nbsp;import org.osgi.service.event.EventConstants;
+&nbsp;import org.osgi.service.event.EventHandler;
+&nbsp;import org.slf4j.Logger;
+&nbsp;import org.slf4j.LoggerFactory;
+&nbsp;
+&nbsp;/**
+&nbsp; * A service to demonstrate how changes in the resource tree
+&nbsp; * can be listened for. It registers an event handler service.
+&nbsp; * The component is activated immediately after the bundle is
+&nbsp; * started through the immediate flag.
+&nbsp; * Please note, that apart from EventHandler services,
+&nbsp; * the immediate flag should not be set on a service.
+&nbsp; */
+&nbsp;@Component(service = EventHandler.class,
+&nbsp;           immediate = true,
+&nbsp;           property = {
+&nbsp;                   EventConstants.EVENT_TOPIC + &quot;=org/apache/sling/api/resource/Resource/*&quot;
+&nbsp;           })
+&nbsp;@ServiceDescription(&quot;Demo to listen on changes in the resource tree&quot;)
+<b class="fc">&nbsp;public class SimpleResourceListener implements EventHandler {</b>
+&nbsp;
+<b class="fc">&nbsp;    private final Logger logger = LoggerFactory.getLogger(getClass());</b>
+&nbsp;
+&nbsp;    public void handleEvent(final Event event) {
+<b class="fc">&nbsp;        logger.debug(&quot;Resource event: {} at: {}&quot;, event.getTopic(), event.getProperty(SlingConstants.PROPERTY_PATH));</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-03-26 23:27</div>
+</div>
+</body>
+</html>
